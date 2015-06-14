@@ -72,6 +72,9 @@ The presence of missing days may introduce bias into some calculations or summar
 # How many missing values for steps
 sum(is.na(ActvityDS$steps))
 ```
+
+My strategy is to use the mean for that 5-minute interval to fill each NA value in the steps column.
+
 All of the missing values are filled in with mean value for that 5-minute interval.
 
 ```{r, echo=TRUE}
@@ -102,10 +105,12 @@ ActvityDSNoNAperday <- aggregate( x=list(Steps=ActvityDSNoNA[, 'steps']),
 qplot(ActvityDSNoNAperday$Steps, geom="histogram",binwidth=1000,  
                             xlab = "Total number of steps taken each day")
 ```
+
 - calculate the mean  total number of steps.
 ```{r}
 mean(ActvityDSNoNAperday$Steps, na.rm=TRUE)
 ```
+
 - calculate the  median total number of steps.
 ```{r}
 median(ActvityDSNoNAperday$Steps)

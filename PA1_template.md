@@ -110,6 +110,9 @@ sum(is.na(ActvityDS$steps))
 ```
 ## [1] 2304
 ```
+
+My strategy is to use the mean for that 5-minute interval to fill each NA value in the steps column.
+
 All of the missing values are filled in with mean value for that 5-minute interval.
 
 
@@ -164,6 +167,7 @@ qplot(ActvityDSNoNAperday$Steps, geom="histogram",binwidth=1000,
 ```
 
 ![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png) 
+
 - calculate the mean  total number of steps.
 
 ```r
@@ -173,6 +177,7 @@ mean(ActvityDSNoNAperday$Steps, na.rm=TRUE)
 ```
 ## [1] 10766.19
 ```
+
 - calculate the  median total number of steps.
 
 ```r
